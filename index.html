@@ -7,19 +7,31 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="birthday-icons">🎂🎈🎉✨</div>
+  <div class="birthday-bg-icon">🎂🎈🎉</div>
+
+  <div class="twinkle-container">
+    <script>
+      for (let i = 0; i < 60; i++) {
+        const star = document.createElement('div');
+        star.className = 'twinkle';
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        document.body.appendChild(star);
+      }
+    </script>
+  </div>
+
   <div class="container">
     <h1>🎉 Happy Birthday!</h1>
     <p class="signature">Wishing you love, laughter, and joy always 💖</p>
 
     <section>
       <h2>📸 Photo Collection</h2>
-      <div class="carousel-wrapper">
-        <div class="carousel-slide">
-          <img src="assets/images/photo1.jpeg" alt="Photo 1" />
-          <img src="assets/images/photo2.jpeg" alt="Photo 2" />
-          <img src="assets/images/photo3.jpeg" alt="Photo 3" />
-        </div>
+      <div class="photo-list">
+        <img src="assets/images/photo1.jpeg" alt="Photo 1" />
+        <img src="assets/images/photo2.jpeg" alt="Photo 2" />
+        <img src="assets/images/photo3.jpeg" alt="Photo 3" />
       </div>
     </section>
 
@@ -47,16 +59,6 @@
       index = (index + 1) % messages.length;
       signature.textContent = messages[index];
     }, 4000);
-
-    // meteor effect
-    for (let i = 0; i < 10; i++) {
-      const meteor = document.createElement("div");
-      meteor.className = "meteor";
-      meteor.style.left = `${Math.random() * window.innerWidth}px`;
-      meteor.style.animationDelay = `${Math.random() * 5}s`;
-      meteor.style.animationDuration = `${3 + Math.random() * 3}s`;
-      document.body.appendChild(meteor);
-    }
   </script>
 </body>
 </html>
