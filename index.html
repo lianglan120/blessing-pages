@@ -5,6 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🎂 Happy Birthday 🎉</title>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e66465, #9198e5);
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    .signature {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .carousel img {
+      max-width: 90%;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    video {
+      width: 90%;
+      max-width: 600px;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 10px;
+    }
+    .sparkle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: sparkle 7s linear infinite;
+    }
+    @keyframes sparkle {
+      0% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -14,20 +68,20 @@
     <section>
       <h2>📸 Photo Collection</h2>
       <div class="carousel">
-        <img src="assets/photo1.jpg" alt="Photo 1"/>
-        <img src="assets/photo2.jpg" alt="Photo 2"/>
-        <img src="assets/photo3.jpg" alt="Photo 3"/>
+        <img src="assets/images/photo1.jpg" alt="Photo 1"/>
+        <img src="assets/images/photo2.jpg" alt="Photo 2"/>
+        <img src="assets/images/photo3.jpg" alt="Photo 3"/>
       </div>
     </section>
 
     <section>
-      <h2>🎬 Special Videos</h2>
+      <h2>🎮 Special Videos</h2>
       <video controls>
-        <source src="assets/main-video.mp4" type="video/mp4"/>
+        <source src="assets/videos/main-video.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
       <video controls>
-        <source src="assets/video2.mp4" type="video/mp4"/>
+        <source src="assets/videos/video2.mp4" type="video/mp4"/>
       </video>
     </section>
   </div>
@@ -44,16 +98,16 @@
       index = (index + 1) % messages.length;
       signature.textContent = messages[index];
     }, 4000);
+
+    for (let i = 0; i < 50; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = `${Math.random() * 100}vw`;
+      sparkle.style.top = `${Math.random() * 100}vh`;
+      sparkle.style.animationDelay = `${Math.random() * 5}s`;
+      sparkle.style.animationDuration = `${3 + Math.random() * 4}s`;
+      document.body.appendChild(sparkle);
+    }
   </script>
 </body>
-   for (let i = 0; i < 50; i++) {
-    const sparkle = document.createElement('div');
-    sparkle.className = 'sparkle';
-    sparkle.style.left = `${Math.random() * 100}vw`;
-    sparkle.style.top = `${Math.random() * 100}vh`;
-    sparkle.style.animationDelay = `${Math.random() * 5}s`;
-    sparkle.style.animationDuration = `${3 + Math.random() * 4}s`;
-    document.body.appendChild(sparkle);
-  }
-</script>
 </html>
