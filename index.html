@@ -2,50 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎂 Happy Birthday 🎉</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container">
-    <h1>✨ Happy Birthday 🎂</h1>
-    <p>May all your wishes come true and every joy be doubled!</p>
+    <h1>🎉 Happy Birthday!</h1>
+    <p class="signature">Wishing you love, laughter, and joy always 💖</p>
 
-    <section class="carousel">
-      <h2>🌟 Photo Collection 🌟</h2>
-      <div class="slider">
-        <img src="assets/photo1.jpg" alt="Photo 1" />
-        <img src="assets/photo2.jpg" alt="Photo 2" />
-        <img src="assets/photo3.jpg" alt="Photo 3" />
+    <section>
+      <h2>📸 Photo Collection</h2>
+      <div class="carousel">
+        <img src="assets/photo1.jpg" alt="Photo 1"/>
+        <img src="assets/photo2.jpg" alt="Photo 2"/>
+        <img src="assets/photo3.jpg" alt="Photo 3"/>
       </div>
     </section>
 
-    <section class="videos">
-      <h2>🎉 Special Videos 🎉</h2>
-      <video controls src="assets/birthday-main.mp4"></video>
-      <div class="video-list">
-        <video controls src="assets/video1.mp4"></video>
-        <video controls src="assets/video2.mp4"></video>
-      </div>
-    </section>
-
-    <section class="signature">
-      <h2>✨ Blessing Signature ✨</h2>
-      <p id="signature-text">Wishing you all the happiness in the world...</p>
+    <section>
+      <h2>🎬 Special Videos</h2>
+      <video controls>
+        <source src="assets/main-video.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+      <video controls>
+        <source src="assets/video2.mp4" type="video/mp4"/>
+      </video>
     </section>
   </div>
 
   <script>
+    const signature = document.querySelector(".signature");
     const messages = [
-      "Stay amazing and keep smiling!",
-      "You're one of a kind!",
-      "May your year be filled with magic!",
-      "Wishing you endless success and joy!"
+      "Wishing you love, laughter, and joy always 💖",
+      "May your day be as special as you are 🌟",
+      "Cheers to more adventures and memories 🎈"
     ];
+    let index = 0;
     setInterval(() => {
-      const i = Math.floor(Math.random() * messages.length);
-      document.getElementById("signature-text").textContent = messages[i];
-    }, 3000);
+      index = (index + 1) % messages.length;
+      signature.textContent = messages[index];
+    }, 4000);
   </script>
 </body>
 </html>
