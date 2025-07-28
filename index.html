@@ -1,63 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🎂 Happy Birthday 🎉</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="birthday-icons">🎂🎈🎉✨</div>
-  <div class="container">
-    <h1>🎉 Happy Birthday!</h1>
-    <p class="signature">Wishing you love, laughter, and joy always 💖</p>
+  <h1>🎉 Happy Birthday! 🎈</h1>
+  <p><em>Cheers to more adventures and memories ✨</em></p>
 
-    <section>
-      <h2>📸 Photo Collection</h2>
-      <div class="carousel-wrapper">
-        <div class="carousel-slide">
-          <img src="assets/images/photo1.jpeg" alt="Photo 1" />
-          <img src="assets/images/photo2.jpeg" alt="Photo 2" />
-          <img src="assets/images/photo3.jpeg" alt="Photo 3" />
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>🎬 Special Videos</h2>
-      <video controls>
-        <source src="assets/videos/video1.mp4" type="video/mp4"/>
-        Your browser does not support the video tag.
-      </video>
-      <video controls>
-        <source src="assets/videos/video2.mp4" type="video/mp4"/>
-      </video>
-    </section>
+  <h2>🌟 Photo Collection 🌟</h2>
+  <div class="carousel">
+    <img src="assets/images/photo1.jpg" alt="Photo 1" />
+    <img src="assets/images/photo2.jpg" alt="Photo 2" />
+    <img src="assets/images/photo3.jpg" alt="Photo 3" />
   </div>
 
-  <script>
-    const signature = document.querySelector(".signature");
-    const messages = [
-      "Wishing you love, laughter, and joy always 💖",
-      "May your day be as special as you are 🌟",
-      "Cheers to more adventures and memories 🎈"
-    ];
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % messages.length;
-      signature.textContent = messages[index];
-    }, 4000);
+  <h2>🎥 Special Videos 🎥</h2>
+  <video controls width="320">
+    <source src="assets/videos/birthday-video1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <br />
+  <video controls width="320">
+    <source src="assets/videos/birthday-video2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-    // meteor effect
-    for (let i = 0; i < 10; i++) {
-      const meteor = document.createElement("div");
-      meteor.className = "meteor";
-      meteor.style.left = `${Math.random() * window.innerWidth}px`;
-      meteor.style.animationDelay = `${Math.random() * 5}s`;
-      meteor.style.animationDuration = `${3 + Math.random() * 3}s`;
-      document.body.appendChild(meteor);
-    }
-  </script>
 </body>
 </html>
