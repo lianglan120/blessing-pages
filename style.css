@@ -77,13 +77,10 @@ section {
 
 /* 顶部漂浮生日图标 */
 .floating-icons {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.8rem;
-  animation: floatIcon 4s ease-in-out infinite;
-  z-index: 1;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+  animation: bounce 2s infinite ease-in-out;
 }
 
 @keyframes floatIcon {
