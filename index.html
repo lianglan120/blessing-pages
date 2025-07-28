@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LANLEE 的紫粉星空祝福</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: radial-gradient(ellipse at center, #3e1f47 0%, #120021 100%);
+      color: #fff;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ffc6ff;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #ffe6f5;
+      margin-bottom: 30px;
+    }
+
+    img, video {
+      max-width: 90%;
+      border-radius: 20px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(255, 192, 255, 0.4);
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="content">
+  <h1>LANLEE 的紫粉星空祝福</h1>
+  <p>每一颗星星，都替我守护你 ✨<br>愿你温柔而坚定地走在属于你的星轨上。</p>
+  <img src="image.jpg" alt="Blessing Image" />
+  <br>
+  <video controls autoplay muted loop>
+    <source src="blessing.mp4" type="video/mp4">
+  </video>
+</div>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+// constellation and shooting star effect
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+for (let i = 0; i < 150; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5 + 0.5,
+    d: Math.random() * 1
+  });
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#ffe6ff";
+  for (let i = 0; i < stars.length; i++) {
+    let s = stars[i];
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+}
+
+function animateStars() {
+  for (let i = 0; i < stars.length; i++) {
+    let s = stars[i];
+    s.y -= s.d;
+    if (s.y < 0) {
+      s.y = canvas.height;
+      s.x = Math.random() * canvas.width;
+    }
+  }
+}
+
+let shootingStar = {
+  x: Math.random() * canvas.width,
+  y: 0,
+  length: Math.random() * 80 + 100,
+  speed: Math.random() * 10 + 6,
+  active: true
+};
+
+function drawShootingStar() {
+  if (!shootingStar.active) return;
+  ctx.strokeStyle = "#ffb0ff";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(shootingStar.x, shootingStar.y);
+  ctx.lineTo(shootingStar.x + shootingStar.length, shootingStar.y + shootingStar.length / 2);
+  ctx.stroke();
+  shootingStar.x += shootingStar.speed;
+  shootingStar.y += shootingStar.speed / 2;
+  if (shootingStar.x > canvas.width || shootingStar.y > canvas.height) {
+    shootingStar = {
+      x: Math.random() * canvas.width,
+      y: 0,
+      length: Math.random() * 80 + 100,
+      speed: Math.random() * 10 + 6,
+      active: Math.random() > 0.9
+    };
+  }
+}
+
+function animate() {
+  drawStars();
+  animateStars();
+  drawShootingStar();
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
