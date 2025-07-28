@@ -7,20 +7,7 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="birthday-bg-icon">🎂🎈🎉</div>
-
-  <div class="twinkle-container">
-    <script>
-      for (let i = 0; i < 60; i++) {
-        const star = document.createElement('div');
-        star.className = 'twinkle';
-        star.style.left = `${Math.random() * 100}vw`;
-        star.style.top = `${Math.random() * 100}vh`;
-        star.style.animationDelay = `${Math.random() * 5}s`;
-        document.body.appendChild(star);
-      }
-    </script>
-  </div>
+  <div class="floating-icons">🎂🎉🎈✨🎁</div>
 
   <div class="container">
     <h1>🎉 Happy Birthday!</h1>
@@ -28,37 +15,49 @@
 
     <section>
       <h2>📸 Photo Collection</h2>
-      <div class="photo-list">
-        <img src="assets/images/photo1.jpeg" alt="Photo 1" />
-        <img src="assets/images/photo2.jpeg" alt="Photo 2" />
-        <img src="assets/images/photo3.jpeg" alt="Photo 3" />
+      <div class="photo-gallery">
+        <img src="assets/photo1.jpeg" alt="Photo 1"/>
+        <img src="assets/photo2.jpeg" alt="Photo 2"/>
+        <img src="assets/photo3.jpeg" alt="Photo 3"/>
       </div>
     </section>
 
     <section>
       <h2>🎬 Special Videos</h2>
-      <video controls>
-        <source src="assets/videos/video1.mp4" type="video/mp4"/>
-        Your browser does not support the video tag.
-      </video>
-      <video controls>
-        <source src="assets/videos/video2.mp4" type="video/mp4"/>
-      </video>
+      <div class="video-gallery">
+        <video controls>
+          <source src="assets/video1.mp4" type="video/mp4" />
+        </video>
+        <video controls>
+          <source src="assets/video2.mp4" type="video/mp4" />
+        </video>
+      </div>
     </section>
   </div>
 
   <script>
+    // 动态签名循环
     const signature = document.querySelector(".signature");
     const messages = [
       "Wishing you love, laughter, and joy always 💖",
-      "May your day be as special as you are 🌟",
-      "Cheers to more adventures and memories 🎈"
+      "May your day be filled with magic ✨",
+      "Cheers to you on your special day 🎂"
     ];
     let index = 0;
     setInterval(() => {
       index = (index + 1) % messages.length;
       signature.textContent = messages[index];
     }, 4000);
+
+    // 闪烁星光生成
+    for (let i = 0; i < 40; i++) {
+      const star = document.createElement("div");
+      star.className = "twinkle";
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      document.body.appendChild(star);
+    }
   </script>
 </body>
 </html>
