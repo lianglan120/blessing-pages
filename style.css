@@ -1,34 +1,41 @@
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #e66465, #9198e5);
+  background: linear-gradient(135deg, #eec0f0, #9aace5);
   color: white;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
+  z-index: 1;
+  position: relative;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .signature {
   font-style: italic;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #fff8f8;
 }
 
 .carousel-wrapper {
   overflow-x: auto;
   white-space: nowrap;
   scroll-snap-type: x mandatory;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   margin-bottom: 2rem;
   display: flex;
   justify-content: center;
@@ -40,11 +47,11 @@ h1 {
 }
 
 .carousel-slide img {
-  width: 280px;
+  width: 160px;
   height: auto;
   scroll-snap-align: start;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
 }
 
@@ -53,45 +60,44 @@ h1 {
 }
 
 video {
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 320px;
   margin: 1rem auto;
   border-radius: 10px;
   display: block;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
-.birthday-icons {
+.birthday-bg-icon {
   position: fixed;
-  top: 10px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2rem;
-  animation: bounce 2s infinite ease-in-out;
+  font-size: 2.2rem;
+  animation: float 3s ease-in-out infinite;
+  opacity: 0.3;
+  z-index: 0;
 }
 
-@keyframes bounce {
+@keyframes float {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(-10px); }
 }
 
-.meteor {
+/* Twinkle Stars */
+.twinkle {
   position: fixed;
   width: 2px;
-  height: 80px;
+  height: 2px;
   background: white;
-  top: -100px;
-  animation: shoot 5s linear infinite;
-  opacity: 0.8;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 3s infinite;
+  z-index: 0;
 }
 
-@keyframes shoot {
-  0% {
-    transform: translate(0, 0) rotate(45deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(800px, 800px) rotate(45deg);
-    opacity: 0;
-  }
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
+
